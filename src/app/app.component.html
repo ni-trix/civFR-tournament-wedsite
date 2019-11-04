@@ -4,25 +4,22 @@
       <a href="https://civfr.com/"><span *ngIf="lang === 'uk'">Return on civFR.com</span></a>
   </div>
   <div class="langFlags" style="float: right;">
-    <img src="https://i.ibb.co/Lx75C5f/1200px-Flag-of-France-svg.png" alt="fr-flag" height="30px" width="40px" style="margin-top: 25px;margin-right: 20px;" (click)="changeLang()" *ngIf="lang === 'fr'">
-    <img src="https://i.ibb.co/260VWRg/1280px-Flag-of-the-United-Kingdom-svg.png" alt="uk-flag" height="30px" style="margin-top: 25px;margin-right: 20px;" width="40px" (click)="changeLang()" *ngIf="lang === 'uk'">
+    <img src="https://i.ibb.co/Lx75C5f/1200px-Flag-of-France-svg.png" alt="fr-flag" height="30px" width="40px" style="margin-top: 25px;margin-right: 20px;" (click)="changeLang()" *ngIf="lang === 'uk'">
+    <img src="https://i.ibb.co/260VWRg/1280px-Flag-of-the-United-Kingdom-svg.png" alt="uk-flag" height="30px" style="margin-top: 25px;margin-right: 20px;" width="40px" (click)="changeLang()" *ngIf="lang === 'fr'">
   </div>
 </header>
 
 <body>
-  <div style="display: flex;">
-    <img src="https://i.ibb.co/gSdDpym/tournoi-Civfr2em.jpg" alt="tournoi-Civfr2em" style="margin:10px auto 10px auto " class="imgBody">
-  </div>
-  <br>
 
-  <div class="bodyFR" *ngIf="lang === 'fr'">
+
+  <!-- <div class="bodyFR" *ngIf="lang === 'fr'">
     <h1 style="text-align: center;">Bienvenue</h1>
   </div>
   <div class="bodyUK" *ngIf="lang === 'uk'">
     <h1 style="text-align: center;">Welcome</h1>
-  </div>
+  </div> -->
 
-  <ul class="nav">
+  <ul class="nav"   #stickyMenu [class.sticky] = "sticky">
     <li class="nav-item">
       <a class="nav-link active" href="#nav-rules" id="nav-rules-tab" data-toggle="tab"><span *ngIf="lang === 'fr'">Reglement</span><span *ngIf="lang === 'uk'">Rules</span></a>
     </li>
@@ -37,16 +34,76 @@
       </li>
   </ul>
 
+  <div style="display: flex;" id="bodySite">
+    <img src="https://i.ibb.co/gSdDpym/tournoi-Civfr2em.jpg" alt="tournoi-Civfr2em" style="margin:10px auto 10px auto " class="imgBody">
+  </div>
+  <br>
+
   <div class="tab-content" id="nav-tabContent">
 
-    <div class="tab-pane fade show active" id="nav-rules" role="tabpanel" aria-labelledby="nav-rules">
-      <div *ngIf="lang === 'fr'">
-        UN       
-        <!-- <h3 style="text-align: center;">Paramètres de partie & règles spécifiques</h3>
-        <h4>Jeu :</h4> <span>Civilization 6 Gathering Storm</span> -->
+    <div class="tab-pane fade show active" id="nav-rules" role="tabpanel" aria-labelledby="nav-rules" style="padding: 20px;">
+      <div *ngIf="lang === 'fr'"> <!-- Règles en FR-->
+        <br><h3 style="text-align: center;">Paramètres de partie & règles spécifiques</h3> <br>
+
+        <div class="line"><h4>Jeu :</h4> <span>&nbsp;Civilization 6 Gathering Storm</span></div>
+        <div class="line"><h4>Mods :</h4> <span>&nbsp;Better Balance Start / Better Balance Game / Spectator mod si partie castée</span></div>
+        <div class="line"><h4>Nb de tours max :</h4> <span>&nbsp;150</span></div>
+        <div class="line"><h4>Timer :</h4> <span>&nbsp;Dynamique</span></div>
+        <div class="line"><h4>Intensité des catastrophes :</h4> <span>&nbsp;4</span></div>
+        <div class="line"><h4>Cité état :</h4> <span>&nbsp;Vous ne pouvez pas prendre plus d’une cité état (vous pourrez raser les autres cités états. Si vous prenez une ville d’un ennemi qui était une cité état, vous pouvez la garder)</span></div>
+        <div class="line"><h4>Victoires autorisées :</h4> <span>&nbsp;Toutes + victoire au point après T150.</span></div>
+        <div class="line"><h4>Choix de civilization et ban :</h4> <span>&nbsp;Ban : 2112 – Il y aura deux bans autorisés par équipe. Les ban seront faits avant la phase de pick. <br>
+          &nbsp;Pick : > Une équipe aura la priorité lobby 1221 (ordre dans le lobby & pick) <br>
+          &nbsp;L’équipe 1 héberge la partie, elle sera désignée par un arbitre. </span></div>
+        <div class="line"><h4>Remap :</h4> <span>&nbsp;Vous aurez droit à un remap par équipe. Vous aurez jusqu’au tour 8 inclus pour demander un remap.</span></div>
+
+        <br><h3 style="text-align: center;">Choix de tournoi</h3> <br>
+
+        <div class="line"><h4>Tournoi à double élimination</h4> <span>&nbsp;Une équipe qui perd son premier match peut quand même remporter ce type de tournoi en jouant. Toutefois, deux rencontres supplémentaires s'imposent pour cette équipe avant d'arriver en finale.</span></div>
+        <div class="line"><h4>Tours 1 à X</h4> <span>&nbsp;Type de partie : partie en BO1 <br>
+          &nbsp;Carte : carte choisi par les organisateurs du tournoi</span></div>
+        <div class="line"><h4>Demi Finale & Finale</h4> <span>&nbsp;Type de partie : partie en BO3 <br>
+          &nbsp;Carte : Chaque équipe pourra bannir 2 cartes (suivre le schéma des bans standards 2112). Les équipes pourront ensuite choisir de jouer sur les cartes restantes. <br>
+          &nbsp;Si les deux équipes ont gagné chacune 1 partie, elles devront jouer la troisième sur la carte Mirror.</span></div>
+
+        <br><h3 style="text-align: center;">RDV des équipes</h3> <br>
+
+        <span>
+          Les équipes devront trouver un créneau de jeu dans la semaine. Si elles ne trouvent pas de créneau commun elles devront jouer le Samedi de la semaine à 20h. <br>
+          Les demi finales et finales seront des dates choisies par le staff du tournoi plus tôt dans le week end.
+        </span>
       </div>
-      <div *ngIf="lang === 'uk'">
-        ONE
+
+      <div *ngIf="lang === 'uk'"> <!-- Règles en EN-->
+          <br><h3 style="text-align: center;">Game settings & specific rules</h3> <br>
+
+          <div class="line"><h4>Game :</h4> <span>&nbsp;Civilization 6 Gathering Storm</span></div>
+          <div class="line"><h4>Mods :</h4> <span>&nbsp;Better Balance Start / Better Balance Game /  Spectator mod if needed by casters</span></div>
+          <div class="line"><h4>Maximum number of turns :</h4> <span>&nbsp;150</span></div>
+          <div class="line"><h4>Timer :</h4> <span>&nbsp;Dynamic</span></div>
+          <div class="line"><h4>Disaster intensity :</h4> <span>&nbsp;4</span></div>
+          <div class="line"><h4>City-state :</h4> <span>&nbsp;You can’t capture more than one city-state. You can raze the other city states. If you capture an enemy city that was a city-state, you’re allowed to keep it.</span></div>
+          <div class="line"><h4>Victory conditions :</h4> <span>&nbsp;All allowed + score victory after T150.</span></div>
+          <div class="line"><h4>Picks and bans :</h4> <span>&nbsp;Bans : 2112 – Two bans per team. Bans are done before picks.<br>
+            &nbsp;Picks : 1221 _ By lobby order.<br>
+            &nbsp;Team 1 will be designated by a referee (@arbitre) and will host the game.</span></div>
+          <div class="line"><h4>Remap :</h4> <span>&nbsp;One remap per team is allowed. You’ll have until turn 8 to trigger your remap.</span></div>
+  
+          <br><h3 style="text-align: center;">Bracket specifics</h3> <br>
+  
+          <div class="line"><h4>Double elimination bracket</h4> <span>&nbsp;You can lose one game and still make it to the final at the cost of two more games to play and win. Two losses and you’re out.</span></div>
+          <div class="line"><h4>Round 1 to X</h4> <span>&nbsp;Type of game : BO1 <br>
+            &nbsp;Map : map chosen by the organizers.</span></div>
+          <div class="line"><h4>Semi-Final & Final</h4> <span>&nbsp;Type of game : BO3<br>
+            &nbsp;Map : Each team will be allowed two bans (2112 ban order). Team 1 will chose the first map to play on. <br>
+            &nbsp;Team 2 will chose the map for the 2nd game. The third game will be played on Mirror map.</span></div>
+  
+          <br><h3 style="text-align: center;">Scheduling the games</h3> <br>
+  
+          <span>
+            Teams will have to schedule and play their games during the assigned week. If they don’t manage to, they’ll play Saturday of the ongoing week at 20 pm cet. <br>
+            Semi-finals and final will be scheduled in collaboration with the organizers, most likely during the week-end.
+          </span>
       </div>
     </div>
 

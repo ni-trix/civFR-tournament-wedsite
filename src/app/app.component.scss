@@ -17,6 +17,21 @@ iframe{
     padding: 20px
 }
 
+a{
+    color: #000;
+}
+
+.nav-link{
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+}
+
+.nav-link.active{
+    text-decoration: underline;
+}
+
 h3{
     text-decoration: underline;
 }
@@ -27,7 +42,7 @@ h3{
 
 .line{
     display:flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     span{
         margin-top: 5px;
     }

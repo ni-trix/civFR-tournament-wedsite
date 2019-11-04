@@ -1,0 +1,39 @@
+header{
+    height: 80px;
+    background-color: rgb(231,231,231);
+    width: 100vw;
+}
+
+body{
+    background-color: #F7F9FC;
+}
+
+li{
+    width: 25vw;
+    text-align: center;
+}
+
+iframe{
+    padding: 20px
+}
+
+.tab-pane{
+    min-height: 355px;
+}
+
+footer{
+    height: 40px;
+    width: 100vw;
+    background-color: rgb(231,231,231);
+    position:relative;
+    bottom:0;
+}
+
+@media screen and (max-width: 768px){
+    .imgBody{
+        width: 100vw!important;
+    }
+    iframe{
+        padding: 2px;
+    }
+}
